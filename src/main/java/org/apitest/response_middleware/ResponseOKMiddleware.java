@@ -7,9 +7,9 @@ import com.mashape.unirest.http.HttpResponse;
  */
 public class ResponseOKMiddleware extends AbstractResponseMiddleware{
 
-    public void buildResponseMiddleware(HttpResponse<String> response) throws Exception {
+    public void executeResponseMiddleware(HttpResponse<String> response) throws Exception {
         if (response.getStatus() == STATUS_OK){
-
+            System.out.println("Response is : "+200);
         }else{
             throw new AssertionError("Response not matching"+response.toString());
         }

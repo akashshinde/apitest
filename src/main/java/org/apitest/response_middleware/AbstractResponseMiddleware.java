@@ -7,5 +7,5 @@ import com.mashape.unirest.http.HttpResponse;
  */
 public abstract class AbstractResponseMiddleware {
     public static final int STATUS_OK = 200;
-    public abstract void buildResponseMiddleware(HttpResponse<String> response) throws Exception;
+    public abstract void executeResponseMiddleware(HttpResponse<String> response) throws Exception;
 }

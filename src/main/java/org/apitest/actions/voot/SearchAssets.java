@@ -4,6 +4,7 @@ import com.mashape.unirest.http.HttpResponse;
 import org.apitest.actions.AbstractAction;
 import org.apitest.core.Action;
 import org.apitest.request.Request;
+import org.apitest.response_middleware.AbstractResponseMiddleware;
 
 import java.util.HashMap;
 
@@ -12,6 +13,12 @@ import java.util.HashMap;
  */
 @Action(name = "SEARCH_ASSETS")
 public class SearchAssets extends AbstractAction{
+    public SearchAssets() throws Exception {
+    }
+
+    public AbstractResponseMiddleware addCustomMiddleware() {
+        return null;
+    }
 
     public HttpResponse<String> buildAction(Object object) throws Exception {
         HashMap<String,Object> map = new HashMap<String, Object>();

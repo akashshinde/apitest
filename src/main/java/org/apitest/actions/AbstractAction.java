@@ -1,8 +1,10 @@
 package org.apitest.actions;
 
 import com.mashape.unirest.http.HttpResponse;
+import org.apitest.response_middleware.AbstractResponseMiddleware;
 
 import javax.annotation.Nullable;
+import java.util.LinkedList;
 
 /**
  * Action defines particular request
@@ -20,6 +22,25 @@ public abstract class AbstractAction {
     protected String channelData = "{}";
     protected String url = "http://tvpapi.as.tvinci.com/v3_4/gateways/jsonpostgw.aspx";
     protected String id = "12345";
+
+    public AbstractAction() throws Exception {
+    }
+
+    public abstract AbstractResponseMiddleware addCustomMiddleware();
+
+    public LinkedList<AbstractResponseMiddleware> getResponseMiddlewares() {
+        return responseMiddlewares;
+    }
+
+    public void setResponseMiddlewares(LinkedList<AbstractResponseMiddleware> responseMiddlewares) {
+        this.responseMiddlewares = responseMiddlewares;
+    }
+
+    /**
+     * Linked list holds all
+     * available middleware for current action
+     */
+    protected LinkedList<AbstractResponseMiddleware> responseMiddlewares = new LinkedList<AbstractResponseMiddleware>();
 
     /**
      *

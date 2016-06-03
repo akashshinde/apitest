@@ -41,6 +41,10 @@ public class TestContext {
         }
     }
 
+    public void addResponseMiddleware(AbstractResponseMiddleware middleware){
+        responseMiddleware.add(middleware);
+    }
+
     public void addAction(AbstractAction action){
         if (action.getClass().isAnnotationPresent(Action.class)){
             Action ac = action.getClass().getAnnotation(Action.class);
